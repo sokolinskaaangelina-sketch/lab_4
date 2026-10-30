@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ангелина Соколинская — Портфолио</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+           ПАЛИТРА:
+           Фон:      #fef8ec
+           Текст:    #1a1409 (максимально темный для контраста)
+           Акцент:   #3a4e64 (глубокий синий для имени)
+           Кнопка:   #f4b52c (золото)
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fef8ec;
+            color: #1a1409;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ================= ФОН ================= */
+        .bg-image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: url('C:/Users/admin/Documents/5 семестр лабы и практики/WD/лаб 4/fon.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.9; 
+        }
+
+        /* Вуаль слева, чтобы текст читался, но фон не забивался */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(90deg, rgba(254, 248, 236, 0.8) 0%, rgba(254, 248, 236, 0.3) 45%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ================= НАВИГАЦИЯ ================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #1a1409;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1409;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3a4e64;
+        }
+
+        /* ================= ГЛАВНЫЙ ЭКРАН ================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Пространство между колонками */
+            padding: 120px 60px 60px 60px;
+            max-width: 1400px; /* Чуть уменьшил максимальную ширину */
+            margin: 0 auto;
+            gap: 40px; /* УМЕНЬШИЛ РАССТОЯНИЕ С 80px ДО 40px */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ЛЕВАЯ ЧАСТЬ (ТЕКСТ) */
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            text-align: left;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #1a1409;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 6.5rem;
+            line-height: 1.05;
+            font-weight: 500;
+            color: #1a1409;
+            margin-bottom: 40px;
+            letter-spacing: -1.5px;
+        }
+
+        .accent-text {
+            color: #3a4e64;
+            font-style: italic;
+            font-weight: 500;
+            text-shadow: 2px 2px 15px rgba(254, 248, 236, 0.9);
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #1a1409;
+            margin-bottom: 50px;
+            max-width: 440px;
+            font-weight: 500; 
+        }
+
+        /* Кнопки */
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-dark {
+            background-color: #1a1409;
+            color: #fef8ec;
+            border: 2px solid #1a1409;
+        }
+
+        .btn-dark:hover {
+            background-color: #3a4e64;
+            border-color: #3a4e64;
+            color: #fef8ec;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(58, 78, 100, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid #1a1409;
+            color: #1a1409;
+            background: rgba(254, 248, 236, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(26, 20, 9, 0.15);
+        }
+
+        /* ================= ПРАВАЯ ЧАСТЬ (ФОТО И РАМКА) ================= */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 4 / 5; 
+        }
+
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid #f4b52c;
+            border-radius: 310px 310px 50px 50px; 
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 300px 300px 40px 40px; 
+            position: relative;
+            z-index: 1;
+            object-fit: cover;
+            box-shadow: 0 20px 50px -10px rgba(26, 20, 9, 0.2);
+            transition: transform 0.6s ease;
+            display: block; 
+        }
+
+        .photo:hover {
+            transform: scale(1.02);
+        }
+
+        /* ================= АДАПТИВ ================= */
+        @media (max-width: 1200px) {
+            .title { font-size: 5.5rem; }
+            .hero { gap: 30px; padding: 120px 40px 60px 40px; }
+            .image-frame::before { top: -8px; left: -8px; right: -8px; bottom: -8px; }
+        }
+
+        @media (max-width: 968px) {
+            header {
+                padding: 20px;
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                padding: 120px 20px 60px 20px;
+                text-align: center;
+                gap: 50px; /* Отступ для мобильной версии */
+            }
+            .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+            .title { font-size: 4.5rem; }
+            .buttons { justify-content: center; }
+            .hero-image { justify-content: center; }
+            .image-frame { max-width: 340px; }
+            .photo { border-radius: 200px 200px 30px 30px; }
+            .image-frame::before { border-radius: 210px 210px 40px 40px; }
+        }
+
+        @media (max-width: 480px) {
+            .title { font-size: 3.2rem; }
+            .buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; padding: 18px 30px;}
+            .image-frame { max-width: 280px; }
+            .photo { border-radius: 160px 160px 20px 20px; }
+            .image-frame::before { border-radius: 170px 170px 30px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-image-container"></div>
+    <div class="bg-overlay"></div>
+
+    <header>
+        <a href="#" class="nav-logo">A. Sokolinskaya</a>
+        <nav class="nav-links">
+            <a href="#">Главная</a>
+            <a href="#">Услуги</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="subtitle">DIGITAL CREATOR & MODEL</p>
+                <h1 class="title">
+                    Соколинская<br>
+                    <span class="accent-text">Ангелина</span>
+                </h1>
+                <p class="description">
+                    Привет! Добро пожаловать в мое цифровое пространство. 
+                    Здесь я делюсь своим творчеством, эстетикой и проектами. 
+                    Создаю визуальный контент, который запоминается.
+                </p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-dark">Написать</a>
+                    <a href="#" class="btn btn-outline">Портфолио</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-frame">
+                    <img src="C:/Users/admin/Documents/5 семестр лабы и практики/WD/лаб 4/photo.jpg" alt="Ангелина Соколинская" class="photo">
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

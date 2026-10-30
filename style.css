@@ -1,0 +1,92 @@
+/* 1. Универсальный селектор (делаем фон страницы чуть серым, чтобы белый инпут было видно) */
+* {
+    background-color: #f9f9f9;
+}
+
+/* 2. Селектор по тегу */
+h1 {
+    color: red;
+}
+
+.link {
+    color: green;
+} 
+
+/* 3. Селектор по классу */
+.special-link {
+    color: blue;
+}
+
+.nav-list li:nth-child(3) .link {
+    color: #b8a000; /* Темно-желтый (чтобы читалось) */
+}
+
+/* 4. Селектор по идентификатору (красим заголовок) */
+#first-post h2 {
+    color: orange;
+}
+
+/* 5. Атрибутный селектор */
+[placeholder="Белый"] {
+    color: white;
+    background-color: black; /* Чтобы белый текст было видно на белом фоне */
+}
+
+
+/* 7. Селектор потомков */
+/* Коричневый цвет для элементов списка в сайдбаре */
+.color-list li {
+    color: brown;
+}
+
+/* 8. Селекторы соседей */
+/* Фиолетовый цвет для текста во втором посте (p идет сразу после h2) */
+h2 + p {
+    color: purple;
+}
+
+/* === ЗАКРАШИВАЕМ ИМЕННО БЛОКИ (фон) === */
+/* Оранжевый блок в первом посте */
+#first-post p {
+    background-color: orange;
+}
+/* Фиолетовый блок во втором посте */
+h2 + p {
+    background-color: purple;
+    color: white; /* Чтобы текст читался на фиолетовом */
+}
+
+.widget:first-of-type h3 { 
+    color: rgb(231, 152, 165); 
+}
+
+.color-list li:nth-child(1) { 
+    color: gray;
+ } 
+
+.color-list li.highlighted { 
+    color: black;
+} 
+
+.widget.important-widget h3 { 
+    color: maroon; 
+} 
+.note {
+    color: maroon; 
+}
+
+.submit-btn {
+    color: black; 
+}   
+
+
+[placeholder="Белый"] {
+    color: rgb(3, 3, 3); 
+    background-color: rgb(247, 246, 246); 
+}
+
+
+.submit-btn {
+ color: rgb(254, 254, 254); 
+ background-color: rgb(0, 0, 0);
+}
